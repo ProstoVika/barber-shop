@@ -1,0 +1,367 @@
+* {
+  box-sizing: border-box;
+
+  :root {
+    --trans: all 0.5s ease-in-out;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #f9f9f9;
+
+    .header {
+      margin: 0 auto;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      flex-direction: column;
+      min-height: 140px;
+      background-color: black;
+
+      .navbar {
+        min-height: 140px;
+        background-color: rgb(19 17 17 / 80%);
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+        padding: 0 60px;
+        height: 70px;
+
+        .header-icon {
+          display: flex;
+          gap: 40px;
+
+          a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 300;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              height: 2px;
+              background-color: #f39c12;
+              transition: width 0.3s ease;
+            }
+
+            &:hover,
+            &:focus {
+              color: #f39c12;
+
+              &::after {
+                width: 100%;
+              }
+            }
+          }
+
+        }
+
+        .btn-header-logo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 65px;
+          height: 65px;
+
+          flex-direction: column;
+
+          .btn-logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 70px;
+            height: 70px;
+
+            .logo {
+              display: block;
+              width: 100%;
+              height: 100%;
+              background-image: url('../../product-images/logo.webp');
+              background-size: cover;
+              background-position: center;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+              border-radius: 50%;
+
+
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+
+            .logotype {
+              display: block;
+              margin-top: 5px;
+
+              img {
+                width: 120px;
+                height: auto;
+
+                &:hover {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+        }
+
+        .header-contact {
+          a {
+            position: relative;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 300;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              height: 2px;
+              background-color: #f39c12;
+              transition: width 0.3s ease;
+            }
+
+            &:hover,
+            &:focus {
+              color: #f39c12;
+            }
+
+            &:hover::after,
+            &:focus::after {
+              width: 100%;
+            }
+          }
+        }
+
+        #line {
+          position: fixed;
+          left: 0;
+          top: 143px;
+          width: 0;
+          height: 2px;
+          background-color: #f39c12;
+
+        }
+      }
+    }
+
+    .store-locator {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .stores {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: center;
+    }
+
+    .store {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 1px;
+
+    }
+
+    .img-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(80%);
+
+    }
+
+    .store-info {
+      text-align: center;
+    }
+
+    .topic {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #811010;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .link:hover {
+      color: #d03030;
+      text-decoration: underline;
+    }
+
+    .opening-hours span {
+      display: block;
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 33px;
+      text-align: center;
+      width: 100%;
+
+      .box {
+        flex: 1 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h3 {
+          font-size: 1.8rem;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+          Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-weight: 400;
+          color: white;
+          margin: 0;
+        }
+
+        .social-icons {
+          display: flex;
+          padding: 3rem 0;
+
+          a {
+            color: gray;
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            font-size: 1.4rem;
+            transition: var(--trans);
+
+            &:hover, &:focus {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+
+      .copyright {
+        display: block;
+        max-width: 800px;
+        color: white;
+        white-space: pre-wrap;
+        font-size: 15px;
+        float: left;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .products {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .store-locator h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stores {
+    flex-direction: column;
+  }
+  .store-address {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .products-container .product-img {
+    height: 25rem;
+  }
+  .products-container .product-name {
+    font-size: 0.85rem;
+  }
+  .products-container .product-price {
+    font-size: 0.85rem;
+  }
+  .product {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .products-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
