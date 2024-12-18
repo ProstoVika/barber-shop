@@ -4,6 +4,9 @@
 }
 * :root {
   --trans: all 0.5s ease-in-out;
+  --primary-color: #f39c12;
+  --secondary-color: #141410;
+  --font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -42,6 +45,23 @@ body {
   z-index: 1;
   padding: 0 60px;
   height: 70px;
+  /* Стилі для активного меню */
+}
+.header .navbar .header-icon.active {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(19, 17, 17, 0.8);
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: center;
+}
+.header .navbar .header-contact.active {
+  order: 2;
 }
 .header .navbar .header-icon {
   display: flex;
@@ -213,6 +233,7 @@ body {
   max-width: 50%;
   height: 100%;
   position: relative;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
 }
 .story-section .story-container .story-image::before {
   content: "";
@@ -232,12 +253,9 @@ body {
   border-radius: 0;
   position: relative;
 }
-.story-section .story-container .story-image {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)); /* Темніший градієнт для глибшого переходу */
-}
 .story-section .story-container .story-text {
   flex: 1;
-  max-width: 50%;
+  max-width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -285,6 +303,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 50px;
+  flex-wrap: wrap;
 }
 .team-section .team-member {
   flex: 1;
@@ -293,7 +312,6 @@ body {
 .team-section .team-member img {
   width: 100%;
   border-radius: 1px;
-  object-fit: cover;
   height: 420px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -401,22 +419,92 @@ footer .copyright {
   margin-top: 0;
 }
 
-@media screen and (max-width: 768px) {
-  footer {
-    position: relative;
+@media screen and (max-width: 320px) {
+  .story-image {
+    display: none;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
+  .header .navbar {
+    min-height: 10px;
+  }
   .products {
     grid-template-columns: 300px 1fr;
   }
-}
-@media screen and (max-width: 768px) {
+  .content {
+    display: none;
+  }
+  .header-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(19, 17, 17, 0.8);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-contact {
+    margin-top: 30px;
+    order: 2;
+  }
+  .header-icon {
+    order: 1;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .header-icon.active {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(19, 17, 17, 0.8);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-contact.active {
+    order: 2;
+  }
+  #line {
+    display: none;
+  }
+  .story-container {
+    flex-direction: column;
+  }
+  .story-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+  }
+  .team-images {
+    flex-direction: column; /* Елементи розташовуються вертикально */
+    align-items: center;
+    gap: 20px; /* Зменшений проміжок між елементами */
+  }
+  .team-member {
+    max-width: 100%; /* Ширина блоку відповідає ширині контейнера */
+  }
+  .team-member img {
+    height: auto; /* Зберігає пропорції зображення */
+    max-height: 300px; /* Обмежує максимальну висоту */
+  }
+  .team-member p {
+    font-size: 1rem; /* Трохи менший розмір тексту */
+  }
   .store-locator h1 {
     font-size: 2rem;
   }
-}
-@media screen and (max-width: 768px) {
   .stores {
     flex-direction: column;
   }
@@ -424,44 +512,24 @@ footer .copyright {
     width: 100%;
     margin-top: 10px;
   }
-}
-@media (max-width: 768px) {
-  .story-container {
-    flex-direction: column;
-  }
-  .story-image,
-.story-text {
-    max-width: 100%;
-  }
-  .story-text {
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-  }
-  .story-image img {
-    height: auto;
-  }
-  .story-text {
-    flex: 1;
-  }
-  .story-text h2 {
-    font-size: 1.7rem;
-    margin-bottom: 20px;
-    font-weight: 300;
-  }
-  .story-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    font-weight: 300;
-    text-align: justify;
-    margin: 0;
-    padding: 0;
-  }
-  .story-text .highlight {
-    color: #dbba34;
+  footer {
+    position: relative;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 768px) {
+  .story-image {
+    display: none;
+  }
+}
+@media screen and (min-width: 896px) {
+  .btn-header-logo .btn-logo {
+    display: none; /* Сховуємо елемент на екранах більше за 896px */
+  }
+}
+@media screen and (max-width: 1024px) {
+  .header .navbar .btn-header-logo .btn-logo {
+    display: none;
+  }
   .products-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -480,10 +548,25 @@ footer .copyright {
     margin-bottom: 0;
   }
 }
-@media screen and (min-width: 1170px) {
+@media screen and (max-width: 1280px) {
   .products-container {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+@media screen and (max-width: 1440px) {
+  /* Ваші стилі */
+}
+@media screen and (max-width: 1600px) {
+  /* Ваші стилі */
+}
+@media screen and (max-width: 1920px) {
+  /* Ваші стилі */
+}
+@media screen and (max-width: 2560px) {
+  /* Ваші стилі */
+}
+@media screen and (min-width: 2561px) {
+  /* Ваші стилі */
 }
 
 /*# sourceMappingURL=styles.css.map */
