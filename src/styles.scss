@@ -497,11 +497,13 @@ footer {
 
 @media screen and (max-width: 768px) {
   .header .navbar {
-    min-height: 270px;
+    min-height: 250px;
   }
   .navbar {
     flex-direction: column;
+
   }
+
   #nav-links {
     display: none;
     flex-direction: column;
@@ -511,7 +513,7 @@ footer {
   }
 
   .content {
-    display: none;
+    margin-top: 350px;
   }
 
   .header-icon {
@@ -523,7 +525,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 40px 0;
+    padding: 10px 0;
     align-items: center;
     justify-content: center;
   }
@@ -533,8 +535,9 @@ footer {
     text-align: center;
     width: 100%;
     margin-right: -20px;
+    background-color: rgba(19, 17, 17, 0.8);
+    height: 40px;
   }
-
 
   #line {
     display: none;
@@ -542,8 +545,8 @@ footer {
 
   .story-container {
     flex-direction: column;
+    height: 100%;
   }
-
 
   .story-text {
     display: flex;
@@ -554,7 +557,6 @@ footer {
     width: 100%;
   }
 
-
   .team-images {
     flex-direction: column;
     align-items: center;
@@ -562,11 +564,11 @@ footer {
   }
 
   .team-member {
-    max-width: 100%;
+    max-width: 80%;
 
     img {
       height: auto;
-      max-height: 300px;
+      max-height: 380px;
     }
 
     p {
@@ -578,6 +580,9 @@ footer {
     font-size: 2rem;
   }
 
+  .story-image {
+   display: none;
+  }
   .stores {
     flex-direction: column;
   }
@@ -592,11 +597,6 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .story-image {
-    display: none;
-  }
-}
 
 @media screen and (min-width: 896px) {
   .btn-header-logo .btn-logo {

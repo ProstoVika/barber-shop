@@ -420,7 +420,7 @@ footer .copyright {
 }
 @media screen and (max-width: 768px) {
   .header .navbar {
-    min-height: 270px;
+    min-height: 250px;
   }
   .navbar {
     flex-direction: column;
@@ -433,7 +433,7 @@ footer .copyright {
     padding: 20px 0;
   }
   .content {
-    display: none;
+    margin-top: 350px;
   }
   .header-icon {
     display: flex;
@@ -444,7 +444,7 @@ footer .copyright {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 40px 0;
+    padding: 10px 0;
     align-items: center;
     justify-content: center;
   }
@@ -453,12 +453,15 @@ footer .copyright {
     text-align: center;
     width: 100%;
     margin-right: -20px;
+    background-color: rgba(19, 17, 17, 0.8);
+    height: 40px;
   }
   #line {
     display: none;
   }
   .story-container {
     flex-direction: column;
+    height: 100%;
   }
   .story-text {
     display: flex;
@@ -474,17 +477,20 @@ footer .copyright {
     gap: 20px;
   }
   .team-member {
-    max-width: 100%;
+    max-width: 80%;
   }
   .team-member img {
     height: auto;
-    max-height: 300px;
+    max-height: 380px;
   }
   .team-member p {
     font-size: 1rem;
   }
   .store-locator h1 {
     font-size: 2rem;
+  }
+  .story-image {
+    display: none;
   }
   .stores {
     flex-direction: column;
@@ -495,11 +501,6 @@ footer .copyright {
   }
   footer {
     position: relative;
-  }
-}
-@media screen and (max-width: 768px) {
-  .story-image {
-    display: none;
   }
 }
 @media screen and (min-width: 896px) {

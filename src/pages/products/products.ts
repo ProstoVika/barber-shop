@@ -3,8 +3,6 @@ import {Filter} from "../../lego/filter";
 import {productDOM, ProductList} from "../../lego/product";
 
 
-
-
 export class MainController {
     private readonly productList: ProductList;
     private filter: Filter;

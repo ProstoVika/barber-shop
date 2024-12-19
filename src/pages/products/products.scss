@@ -281,7 +281,7 @@ body {
 
     .material-icons {
       position: absolute;
-      left: 260px;
+      left: 250px;
       top: 7px;
       background-color: #fff;
       border: none;
@@ -462,6 +462,9 @@ footer {
     width: 100%;
     margin-right: -20px;
   }
+  .promo-item img{
+    margin-top: 270px;
+  }
 
   #line {
     display: none;
@@ -484,7 +487,6 @@ footer {
   footer {
     position: relative;
   }
-
 }
 
 @media screen and (min-width: 896px) {
@@ -495,6 +497,9 @@ footer {
 
 
 @media screen and (min-width: 992px) {
+  .promo-container{
+    margin-top: 140px;
+  }
   .products-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
