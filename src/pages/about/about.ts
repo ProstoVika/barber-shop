@@ -1,7 +1,6 @@
  import './about.css'
 
 
-
  export class AboutController {
 
      constructor() {
@@ -19,7 +18,6 @@
      public initializeAboutPage(): void {
          console.log(window.origin)
      }
-
  }
 
  export const aboutController = new AboutController();

@@ -1,6 +1,5 @@
 import {ProductInterface} from "../inter/interfaces";
 
-
 export const productDOM = document.querySelector(".products-container") as Element;
 
 export class ProductList {
@@ -42,7 +41,6 @@ export class ProductList {
                     <span class="company-btn">${product.company}</span>
                      <span class="product-price">£${product.price}</span>
                 </div>`;
-
 
                 if (productDOM) {
                     productDOM.appendChild(element);

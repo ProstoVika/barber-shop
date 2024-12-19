@@ -26,9 +26,7 @@ export class MainController {
         window.addEventListener('scroll', this.handleScroll.bind(this));
 
     }
-    private handleHeaderIconClick() {
-        console.log('Header icon clicked!');
-    }
+
     private progressBar() {
         let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -46,7 +44,6 @@ export class MainController {
             this.content.classList.remove("hidden");
         }
     }
-
 
     private updateView = async (): Promise<void> => {
         try {

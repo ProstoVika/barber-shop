@@ -8,7 +8,6 @@
     --secondary-color: #141410;
     --font-family: 'Roboto', sans-serif;
   }
-
 }
 
 body {
@@ -21,7 +20,6 @@ body {
   box-sizing: border-box;
   font-size: 14px;
 }
-
 
 .header {
   margin: 0 auto;
@@ -65,7 +63,6 @@ body {
         position: relative;
         padding-bottom: 5px;
         transition: color 0.3s ease;
-
 
         &::after {
           content: '';
@@ -181,8 +178,6 @@ body {
       }
     }
 
-
-
     #line {
       position: fixed;
       left: 0;
@@ -190,7 +185,6 @@ body {
       width: 0;
       height: 2px;
       background-color: #f39c12;
-
     }
   }
 }
@@ -200,7 +194,6 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
 
 .navbar-background-video {
   position: fixed;
@@ -476,22 +469,9 @@ footer {
 }
 
 @media screen and (max-width: 320px) {
-
   .story-image {
-
     display: none;
   }
-
-}
-
-
-@media screen and (max-width: 480px) {
-
-}
-
-
-@media screen and (max-width: 600px) {
-
 }
 
 
@@ -501,7 +481,6 @@ footer {
   }
   .navbar {
     flex-direction: column;
-
   }
 
   #nav-links {
@@ -597,7 +576,6 @@ footer {
   }
 }
 
-
 @media screen and (min-width: 896px) {
   .btn-header-logo .btn-logo {
     display: none;
@@ -606,11 +584,9 @@ footer {
 
 
 @media screen and (max-width: 1024px) {
-
   .header .navbar .btn-header-logo .btn-logo {
     display: none;
   }
-
 
   .products-container {
     display: grid;
@@ -629,36 +605,12 @@ footer {
   .product {
     margin-bottom: 0;
   }
-
-
 }
-
-@media screen and (min-width: 1024px) {
-
-}
-
 
 @media screen and (max-width: 1280px) {
   .products-container {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-
-@media screen and (max-width: 1440px) {
-}
-
-
-@media screen and (max-width: 1600px) {
-}
-
-@media screen and (max-width: 1920px) {
-}
-
-@media screen and (max-width: 2560px) {
-}
-
-@media screen and (min-width: 2561px) {
 }
 
 

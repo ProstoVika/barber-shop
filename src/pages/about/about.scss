@@ -7,7 +7,6 @@
     --secondary-color: #141410;
     --font-family: 'Roboto', sans-serif;
   }
-
 }
 
 body {
@@ -20,7 +19,6 @@ body {
   box-sizing: border-box;
   font-size: 14px;
 }
-
 
 .header {
   margin: 0 auto;
@@ -65,7 +63,6 @@ body {
         padding-bottom: 5px;
         transition: color 0.3s ease;
 
-
         &::after {
           content: '';
           position: absolute;
@@ -90,7 +87,6 @@ body {
           margin-left: auto;
         }
       }
-
     }
 
     .btn-header-logo {
@@ -193,6 +189,7 @@ body {
     }
   }
 }
+
     .store-locator {
       text-align: center;
       margin-top: 150px;
@@ -432,23 +429,10 @@ body {
   }
 }
 
-
-
 @media screen and (min-width: 1170px) {
   .products-container {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-
-
-
-
-
-
-
-@media screen and (max-width: 768px) {
-
 }
 
 @media screen and (min-width: 992px) {

@@ -25,7 +25,6 @@ export class Filter {
     }
 
 
-
     public filterProducts(): ProductInterface[] {
         return this.products.filter((product) => {
             return (
