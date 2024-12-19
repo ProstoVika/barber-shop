@@ -3,7 +3,11 @@
 
   :root {
     --trans: all 0.5s ease-in-out;
+    --primary-color: #f39c12;
+    --secondary-color: #141410;
+    --font-family: 'Roboto', sans-serif;
   }
+
 }
 
 body {
@@ -17,6 +21,7 @@ body {
   font-size: 14px;
 }
 
+
 .header {
   margin: 0 auto;
   position: sticky;
@@ -27,8 +32,6 @@ body {
   align-items: center;
   z-index: 1;
   flex-direction: column;
-  min-height: 140px;
-  background-color: black;
 
   .navbar {
     min-height: 140px;
@@ -48,12 +51,15 @@ body {
 
     .header-icon {
       display: flex;
-      gap: 40px;
+      gap: 20px;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
 
       a {
         text-decoration: none;
         color: #ffffff;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 300;
         position: relative;
         padding-bottom: 5px;
@@ -79,6 +85,10 @@ body {
             width: 100%;
           }
         }
+
+        .contact-link {
+          margin-left: auto;
+        }
       }
 
     }
@@ -92,7 +102,6 @@ body {
       transform: translateX(-50%);
       width: 65px;
       height: 65px;
-
       flex-direction: column;
 
       .btn-logo {
@@ -113,7 +122,6 @@ body {
           background-position: center;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           border-radius: 50%;
-
 
           &:hover {
             transform: scale(1.1);
@@ -137,11 +145,16 @@ body {
     }
 
     .header-contact {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-40%);
+
       a {
         position: relative;
         text-decoration: none;
         color: #ffffff;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 300;
         padding-bottom: 5px;
         transition: color 0.3s ease;
@@ -361,8 +374,8 @@ footer {
   color: white;
   padding: 33px;
   text-align: center;
-  width: 100%;
-
+  width: 100vw;
+  max-width: 100%;
   .box {
     flex: 1 0 auto;
     display: flex;
@@ -406,13 +419,53 @@ footer {
     color: white;
     white-space: pre-wrap;
     font-size: 15px;
-    float: left;
     margin-top: 0;
   }
 }
 
 
+
 @media screen and (max-width: 768px) {
+  .header .navbar {
+    min-height: 270px;
+  }
+  .navbar {
+    flex-direction: column;
+
+  }
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(19, 17, 17, 0.8);
+    padding: 20px 0;
+  }
+
+  .header-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(19, 17, 17, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-contact {
+    margin-top: 120px;
+    text-align: center;
+    width: 100%;
+    margin-right: -20px;
+  }
+
+  #line {
+    display: none;
+  }
   .filters-container {
     flex-direction: column;
     gap: 1rem;
@@ -421,35 +474,25 @@ footer {
   .companies {
     justify-content: center;
   }
-}
 
-@media screen and (max-width: 768px) {
+  .price-list {
+    margin-top: 100px;
+  }
+  .products-container{
+    margin: 0 auto;
+  }
   footer {
     position: relative;
   }
+
 }
 
-@media screen and (min-width: 768px) {
-  .products {
-    grid-template-columns: 300px 1fr;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .store-locator h1 {
-    font-size: 2rem;
+@media screen and (min-width: 896px) {
+  .btn-header-logo .btn-logo {
+    display: none;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .stores {
-    flex-direction: column;
-  }
-  .store-address {
-    width: 100%;
-    margin-top: 10px;
-  }
-}
 
 @media screen and (min-width: 992px) {
   .products-container {
@@ -470,6 +513,27 @@ footer {
     margin-bottom: 0;
   }
 }
+
+@media screen and (max-width: 1024px) {
+
+  .header .navbar .btn-header-logo .btn-logo {
+    display: none;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+
+@media screen and (max-width: 1280px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
 
 @media screen and (min-width: 1170px) {
   .products-container {

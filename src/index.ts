@@ -9,6 +9,7 @@ export class MainController {
     private  line: HTMLElement;
     private  content: HTMLElement;
 
+
     constructor() {
         this.productDOM = document.querySelector(".products-container")!;
         this.productList = new ProductList(this.productDOM);
@@ -21,12 +22,13 @@ export class MainController {
     }
 
     private initializeEventListeners() {
-
         window.addEventListener('scroll', this.progressBar.bind(this));
         window.addEventListener('scroll', this.handleScroll.bind(this));
 
     }
-
+    private handleHeaderIconClick() {
+        console.log('Header icon clicked!');
+    }
     private progressBar() {
         let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
