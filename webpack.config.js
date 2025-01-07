@@ -44,8 +44,6 @@ module.exports = {
                     },
                     'css-loader',
                 ],
-
-
             },
 
             {
@@ -57,14 +55,38 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [
                     {
-                        loader: 'file-loader',
+                        loader: 'url-loader',
                         options: {
-                            name: '[name].[ext]',
-                            outputPath: 'product-images/',
-                        }
-                    }
-                ]
-            }
+                            limit: 8192, // Перетворює зображення в Data URL, якщо менше ніж 8KB
+                            name: 'product-images/[name].[hash].[ext]', // Генеруємо унікальні імена файлів з хешем
+                            outputPath: 'product-images/', // Зберігаємо в папку product-images
+                        },
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 75, // Компресія для JPEG
+                            },
+                            optipng: {
+                                enabled: true,
+                                optimizationLevel: 5, // Компресія для PNG
+                            },
+                            pngquant: {
+                                quality: [0.65, 0.9], // Якість PNG
+                                speed: 4,
+                            },
+                            gifsicle: {
+                                interlaced: false, // Оптимізація для GIF
+                            },
+                            webp: {
+                                quality: 75, // Якість WebP
+                            },
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [
