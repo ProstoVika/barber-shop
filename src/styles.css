@@ -419,6 +419,9 @@ footer .copyright {
   }
 }
 @media screen and (max-width: 768px) {
+  .header .navbar .btn-header-logo .btn-logo {
+    display: none;
+  }
   .header .navbar {
     min-height: 250px;
   }
