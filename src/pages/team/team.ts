@@ -1,2 +1,2 @@
-import './team.scss';
+import './team.css';
 

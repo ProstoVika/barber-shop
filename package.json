@@ -24,13 +24,13 @@
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5",
     "typescript": "^5.0.4",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^5.2.2"
   },
   "dependencies": {
     "style-loader": "^3.3.2",
     "ts-loader": "^9.4.2",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
-    "webpack": "^5.79.0",
-    "webpack-dev-server": "^5.2.2"
+    "webpack": "^5.79.0"
   }
 }
