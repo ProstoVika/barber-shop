@@ -8,6 +8,7 @@
     "start": "npx webpack serve",
     "build-dev": "webpack",
     "build-prod": "webpack --node-env=production",
+    "build": "webpack --mode production",
     "clear": "rd /s /q dist"
   },
   "keywords": [],
