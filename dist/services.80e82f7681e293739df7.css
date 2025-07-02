@@ -1,6 +1,6 @@
-/*!*******************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/pages/team/team.scss ***!
-  \*******************************************************************************************************************/
+/*!***********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/pages/services/services.css ***!
+  \***********************************************************************************/
 * {
   box-sizing: border-box;
 }
@@ -19,7 +19,6 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-size: 14px;
-  width: 100%;
 }
 
 .header {
@@ -141,7 +140,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  background-image: url(/f32b1b45d225fdf465f5.webp);
+  background-image: url(./f32b1b45d225fdf465f5.webp);
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -170,45 +169,66 @@ body {
   background-color: #f39c12;
 }
 
-.gallery {
-  display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  padding: 15px;
-  justify-content: center;
+.price-list {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
-
-.gallery img {
-  filter: grayscale(100%);
-  width: 380px;
-  height: 500px;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+.price-list h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
-.gallery img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  opacity: 0.9;
+.price-list .price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.price-list .price-table th, .price-list .price-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.price-list .price-table th {
+  background-color: #f2f2f2;
+  font-weight: normal;
+  border: none;
+}
+.price-list .price-table td {
+  font-size: 1rem;
+  border-top: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+.price-list .price-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.price-list .price-table tr:hover {
+  background-color: #f1f1f1;
+}
+.price-list .separator {
+  width: 100%;
+  height: 2px;
+  background-color: #ffd700;
+  margin: 20px 0;
 }
 
 footer {
-  position: relative;
-  width: 100vw;
-  max-width: 100%;
-  margin: 0;
-  padding: 33px;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  padding: 33px;
   text-align: center;
+  width: 100vw;
+  max-width: 100%;
 }
 footer .box {
   flex: 1 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 footer .box h3 {
   font-size: 1.8rem;
@@ -220,8 +240,6 @@ footer .box h3 {
 footer .box .social-icons {
   display: flex;
   padding: 3rem 0;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 footer .box .social-icons a {
   color: gray;
@@ -246,14 +264,6 @@ footer .copyright {
   margin-top: 0;
 }
 
-@media screen and (max-width: 320px) {
-  .story-image {
-    display: none;
-  }
-  footer {
-    width: 100%;
-  }
-}
 @media screen and (max-width: 768px) {
   .header .navbar {
     min-height: 270px;
@@ -287,36 +297,24 @@ footer .copyright {
     width: 100%;
     margin-right: -20px;
   }
-  .content {
-    margin-top: 350px;
-  }
   #line {
     display: none;
   }
-  .gallery {
-    margin-top: 140px;
-    gap: 20px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
+  .price-list {
+    margin-top: 100px;
   }
-  .gallery img {
-    margin: 0 auto;
-    width: 280px;
-    height: 400px;
-    object-fit: cover;
-    cursor: pointer;
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   footer {
-    width: 100%;
+    position: relative;
   }
 }
 @media screen and (min-width: 896px) {
   .btn-header-logo .btn-logo {
     display: none;
-  }
-  .gallery img {
-    margin: 0 auto;
   }
 }
 @media screen and (min-width: 896px) {
@@ -329,6 +327,14 @@ footer .copyright {
     display: none;
   }
   .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 }
+@media screen and (max-width: 1280px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
