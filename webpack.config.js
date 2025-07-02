@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 module.exports = {
     entry: {
@@ -37,16 +37,17 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
-            },
-            {
-                test: /\.s[ac]ss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'style-loader',
+                        options: { injectType: 'singletonStyleTag' },
+                    },
                     'css-loader',
-                    'sass-loader',
                 ],
+
+
             },
+
             {
                 test: /\.json$/,
                 loader: 'json-loader',
@@ -66,7 +67,6 @@ module.exports = {
             }
         ],
     },
-
     plugins: [
         new HtmlWebpackPlugin({ template: './src/index.html', filename: 'index.html', chunks:['main']}),
         new HtmlWebpackPlugin({ template: './src/pages/about/about.html', filename: 'pages/about/about.html', chunks:['about']}),
@@ -74,8 +74,6 @@ module.exports = {
         new HtmlWebpackPlugin({ template: './src/pages/services/services.html', filename: 'pages/services/services.html', chunks:['services']}),
         new HtmlWebpackPlugin({ template: './src/pages/team/team.html', filename: 'pages/team/team.html', chunks:['team']}),
 
-    new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',}),
 
         new CopyPlugin({
             patterns: [
