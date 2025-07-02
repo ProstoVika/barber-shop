@@ -81,7 +81,8 @@ module.exports = {
             patterns: [
                 { from: "./src/product-images", to: "product-images"},
                 { from: "./src/*.json", to: "[name][ext]" },
-                { from: "./_redirects", to: "_redirects" },
+                { from: "_redirects" },
+
 
             ],
         }),
