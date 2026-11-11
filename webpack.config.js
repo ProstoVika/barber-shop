@@ -34,8 +34,14 @@ module.exports = (env, argv) => {
 
         module: {
             rules: [
-                { test: /\.ts$/, use: 'ts-loader', exclude: /node_modules/ },
+                // onlyCompileBundledFiles: old leftover .ts files in src/ don't break the build
+                { test: /\.ts$/, loader: 'ts-loader', options: { onlyCompileBundledFiles: true }, exclude: /node_modules/ },
                 { test: /\.s?css$/i, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] },
+                {
+                    test: /\.(woff2?)$/i,
+                    type: 'asset/resource',
+                    generator: { filename: 'fonts/[name].[contenthash:8][ext]' },
+                },
             ],
         },
 

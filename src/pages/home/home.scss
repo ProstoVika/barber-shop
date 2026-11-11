@@ -1,205 +1,630 @@
 @use '../../styles/variables' as *;
 
-// The hero video sits behind the transparent header, so no top padding here
+// Home page — dark, editorial, grotesk type, thin lines, delicate gold.
+// The static layout works on its own; `.has-motion` (set in <head>) adds the animated version.
+
+$ink: #141414;
+$paper: #ececea;
+$muted: #808080;
+$line: rgb(236 236 234 / 18%);
+$gold: #c8a96a;
+$grotesk: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+$gutter: clamp(16px, 2.2vw, 32px);
+
 body.page-home {
-    padding-top: 0;
+    background: $ink;
+    color: $paper;
+    font-family: $grotesk;
+    font-size: 15px;
+    letter-spacing: -0.005em;
 }
 
-.section-title {
-    margin: 0 0 20px;
-    font-size: 2rem;
-    font-weight: 300;
-    color: $color-dark;
+.page-home main {
+    overflow-x: clip;
 }
 
-// ---------- Hero (video stays fixed, the sections below scroll over it) ----------
+.dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: $gold;
+    vertical-align: middle;
+}
+
+.accent {
+    color: $gold;
+}
+
+// ---------- Header (home only): links with dots, thin line underneath ----------
+
+.page-home {
+    .site-header {
+        background: $ink;
+        backdrop-filter: none;
+        border-bottom: 1px solid rgb(236 236 234 / 85%);
+    }
+
+    .site-nav__link {
+        font-family: $grotesk;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 8px;
+            border-radius: 50%;
+            background: currentColor;
+            vertical-align: 1px;
+            transition: background-color $transition;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &[aria-current='page'] {
+            color: $paper;
+
+            &::before {
+                background: $gold;
+            }
+        }
+    }
+
+    .scroll-progress {
+        height: 1px;
+        background: $gold;
+    }
+
+    @include above($bp-menu) {
+        .site-header__inner {
+            padding: 0 $gutter;
+        }
+
+        .site-header__logo {
+            position: static;
+            transform: none;
+
+            img {
+                width: 120px;
+            }
+
+            &:hover {
+                transform: scale(1.03);
+            }
+        }
+
+        .site-nav__list {
+            justify-content: center;
+            gap: 22px;
+
+            li:first-child {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+// ---------- Shared bits ----------
+
+.section-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: baseline;
+    gap: $gutter;
+    padding: 14px 0;
+    border-top: 1px solid $line;
+    color: $muted;
+    font-size: 14px;
+
+    h2 {
+        margin: 0;
+        font-size: inherit;
+        font-weight: 400;
+        color: $paper;
+    }
+
+    > :last-child {
+        justify-self: end;
+    }
+
+    a {
+        color: $paper;
+        text-decoration: none;
+        background: linear-gradient($gold, $gold) left bottom / 0 1px no-repeat;
+        transition: background-size 0.4s ease;
+
+        &:hover,
+        &:focus-visible {
+            background-size: 100% 1px;
+        }
+    }
+}
+
+.portrait {
+    margin: 0;
+    overflow: hidden;
+    background: #1d1d1d;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(1) contrast(1.05);
+        transition: filter 0.8s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover img {
+        filter: grayscale(0);
+        transform: scale(1.03);
+    }
+}
+
+// ---------- Hero ----------
 
 .hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    height: 100svh;
-    padding: var(--header-h) 20px 0;
-    overflow: hidden;
+    &__stage {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__media {
+        height: calc(100svh - var(--header-h));
+        overflow: hidden;
+    }
 
     &__video {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    &__content {
-        color: $color-gold;
-        text-align: center;
-        font-size: 1.6rem;
-        font-weight: 300;
-        line-height: 1.4;
-        transition: opacity 0.5s ease, transform 0.5s ease;
+    &__meta {
+        position: absolute;
+        top: calc(100svh - var(--header-h) - 56px);
+        left: $gutter;
+        right: $gutter;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
 
-        h1 {
-            margin: 0 0 0.5em;
+        p {
+            margin: 0;
+        }
+    }
+
+    &__hint {
+        color: $muted;
+    }
+}
+
+.wordmark {
+    margin: 0;
+    padding: 24px $gutter 0;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    text {
+        fill: $paper;
+        font-family: $grotesk;
+        font-size: 200px;
+        font-weight: 500;
+    }
+}
+
+// Animated hero: the stage is pinned, the video shrinks into a frame
+// and the wordmark rises into the space below it.
+.has-motion .hero {
+    height: 230vh;
+
+    &__stage {
+        position: sticky;
+        top: var(--header-h);
+        height: calc(100svh - var(--header-h));
+        overflow: hidden;
+
+        // final frame of the video (read by JS)
+        --frame: 7% 24% 33% 24%;
+
+        @include below($bp-mobile) {
+            --frame: 8% 6% 24% 6%;
+        }
+    }
+
+    &__media {
+        position: absolute;
+        inset: 0;
+        height: auto;
+        will-change: clip-path;
+    }
+
+    &__meta {
+        top: auto;
+        bottom: 24px;
+    }
+
+    .wordmark {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding-top: 0;
+    }
+}
+
+// ---------- 01 Portraits ----------
+
+.portraits {
+    padding: 0 $gutter 120px;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $gutter;
+        margin-top: 12px;
+
+        .portrait {
+            aspect-ratio: 4 / 5;
         }
 
-        &.is-hidden {
-            opacity: 0;
-            transform: translateY(-20px);
+        @include below($bp-mobile) {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 }
 
-// ---------- Our story ----------
+.has-motion .portraits .section-head {
+    border-top-color: transparent; // the wordmark already draws the line above
+}
 
-.story {
-    display: flex;
-    align-items: stretch;
-    min-height: 100vh;
-    background: #000;
-    color: #fff;
+// ---------- 02 Statement ----------
 
-    &__image {
-        flex: 1;
+.statement {
+    padding: 0 $gutter 160px;
 
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+    &__body {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: clamp(32px, 6vw, 120px);
+        align-items: start;
+        margin-top: 60px;
+
+        @include below($bp-menu) {
+            grid-template-columns: 1fr;
         }
     }
 
     &__text {
-        flex: 1;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 40px;
+        margin: 0;
+        font-size: clamp(2rem, 4.6vw, 4.6rem);
+        font-weight: 400;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+    }
 
-        h2 {
-            margin: 0 0 20px;
-            font-size: 1.7rem;
-            font-weight: 300;
-            text-align: right;
+    &__aside {
+        align-self: end;
+        color: $muted;
+        font-size: 15px;
+        line-height: 1.6;
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            margin-bottom: 20px;
+            object-fit: cover;
+            filter: grayscale(1);
         }
 
         p {
             margin: 0;
-            font-size: 1.2rem;
-            font-weight: 300;
-            line-height: 1.6;
-            text-align: justify;
+            max-width: 320px;
+        }
+    }
+}
+
+// words are split by JS; they light up from grey to white while scrolling
+.word {
+    display: inline;
+}
+
+// ---------- 03 Services ----------
+
+.services {
+    padding: 0 $gutter 140px;
+
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $gutter;
+        margin-top: 12px;
+
+        @include below($bp-mobile) {
+            grid-template-columns: 1fr;
         }
     }
 
-    .highlight {
-        color: #dbba34;
-    }
-
-    @include below($bp-mobile) {
-        min-height: 0;
-
-        &__image {
+    &__aside {
+        @include below($bp-mobile) {
             display: none;
         }
+    }
 
-        &__text {
-            padding: 40px 20px;
+    &__count {
+        position: sticky;
+        top: calc(var(--header-h) + 24px);
+        margin: 0;
+        font-size: clamp(3rem, 7vw, 7rem);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: $muted;
+        font-variant-numeric: tabular-nums;
+    }
 
-            h2 {
-                text-align: center;
-            }
-        }
+    &__current {
+        display: inline-block;
+        color: $gold;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 }
 
-// ---------- Team ----------
+.service {
+    padding-bottom: 90px;
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 12px 0;
+        border-bottom: 1px solid $line;
+
+        h3 {
+            margin: 0;
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        span {
+            color: $muted;
+            font-size: 1.1rem;
+            transition: color $transition;
+        }
+    }
+
+    &:hover &__head span {
+        color: $gold;
+    }
+
+    &__media {
+        position: relative;
+        margin-top: 28px;
+        padding-bottom: 12%;
+    }
+
+    &__main,
+    &__small {
+        display: block;
+        height: auto; // the width/height attributes only reserve space
+        object-fit: cover;
+        filter: grayscale(1);
+        transition: filter 0.8s ease;
+    }
+
+    &__main {
+        width: 68%;
+        aspect-ratio: 4 / 5;
+    }
+
+    &__small {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 38%;
+        aspect-ratio: 1;
+        outline: $gutter solid $ink; // gap around the overlapping photo
+    }
+
+    &:hover &__main,
+    &:hover &__small {
+        filter: grayscale(0);
+    }
+}
+
+// ---------- 04 Team ----------
 
 .team {
-    padding: 40px 20px;
-    background: $color-light-bg;
-    text-align: center;
+    padding: 0 $gutter 140px;
 
-    .section-title {
-        margin-bottom: 40px;
-    }
+    &__grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: $gutter;
+        align-items: start;
+        margin-top: 12px;
 
-    &__members {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 50px;
+        .portrait {
+            aspect-ratio: 3 / 4;
+        }
 
-        img {
-            width: 300px;
-            height: 420px;
-            object-fit: cover;
-            box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
-            transition: transform $transition;
-
-            &:hover {
-                transform: scale(1.05);
-            }
+        @include below($bp-mobile) {
+            grid-template-columns: 1fr 1fr;
         }
     }
 
-    @include below($bp-mobile) {
-        &__members {
-            gap: 20px;
+    &__text {
+        max-width: 420px;
+        margin: 0;
+        font-size: clamp(1.4rem, 2.2vw, 2rem);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
 
-            img {
-                width: 80%;
-                height: auto;
-                max-height: 380px;
-            }
+        @include below($bp-mobile) {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
         }
     }
 }
 
-// ---------- Call to action ----------
+// ---------- 05 Visit ----------
 
-.cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 331px;
-    padding: 50px 20px;
-    background: #f1f1f1;
-    color: $color-dark;
-    text-align: center;
+.visit {
+    padding: 0 $gutter 100px;
 
-    // thin lines above and below, like before
-    &::before,
-    &::after {
-        content: '';
-        width: 80%;
-        height: 1px;
-        background: $color-text;
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $gutter;
+        margin: 12px 0 100px;
+
+        @include above($bp-mobile) {
+            margin-left: calc(33.33% + #{$gutter} / 3);
+        }
     }
 
-    &::before { margin-bottom: 30px; }
-    &::after { margin-top: 30px; }
+    &__place {
+        font-style: normal;
+        line-height: 1.6;
 
-    p {
-        margin: 0 0 20px;
-        font-size: 1rem;
+        h3 {
+            margin: 0 0 12px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        p {
+            margin: 0 0 12px;
+            color: $muted;
+        }
+
+        a {
+            color: $paper;
+            text-decoration: none;
+
+            &:hover {
+                color: $gold;
+            }
+        }
     }
 
-    &__button {
-        padding: 10px 20px;
-        border: 1px solid $color-text;
-        color: $color-text;
-        font-size: 1rem;
+    &__cta {
+        display: inline-flex;
+        gap: 0.3em;
+        color: $paper;
+        font-size: clamp(2.6rem, 8vw, 8rem);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.045em;
         text-decoration: none;
-        transition: background-color $transition, color $transition;
+        background: linear-gradient($gold, $gold) left bottom / 0 2px no-repeat;
+        transition: background-size 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+        span {
+            color: $gold;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
         &:hover,
         &:focus-visible {
-            background: #2f2927;
-            color: #fff;
+            background-size: 100% 2px;
+
+            span {
+                transform: translateX(0.15em);
+            }
         }
     }
+}
+
+.page-home .site-footer {
+    border-top: 1px solid $line;
+    background: $ink;
+}
+
+// ---------- Loader ----------
+
+.loader {
+    display: none;
+}
+
+.has-motion .loader {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: block;
+    background: $ink;
+    color: $paper;
+    font-family: $grotesk;
+
+    &__brand {
+        position: absolute;
+        top: $gutter;
+        left: $gutter;
+        font-size: 15px;
+    }
+
+    &__count {
+        position: absolute;
+        right: $gutter;
+        bottom: 28px;
+        font-size: clamp(4rem, 14vw, 13rem);
+        line-height: 0.8;
+        letter-spacing: -0.05em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__bar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: $gold;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+}
+
+.is-loading body {
+    overflow: hidden;
+}
+
+// ---------- Smooth scroll (Lenis CSS, not exported by the package) ----------
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+    overflow: clip;
 }
