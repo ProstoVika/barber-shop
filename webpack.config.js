@@ -26,45 +26,45 @@ const pages = [
 ];
 
 // Business details for Google (structured data on the home and contact pages)
-const BUSINESS = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        {
-            '@type': 'BarberShop',
-            name: 'Royal Cut South Ealing',
-            url: SITE_URL + '/',
-            image: SITE_URL + '/product-images/1.jpeg',
-            telephone: '+44 20 8567 7342',
-            priceRange: '£12-£27',
-            address: {
-                '@type': 'PostalAddress',
-                streetAddress: '134A South Ealing Road',
-                addressLocality: 'London',
-                postalCode: 'W5 4QJ',
-                addressCountry: 'GB',
-            },
-            openingHours: ['Mo-Fr 09:00-19:00', 'Sa 09:00-18:00', 'Su 10:00-17:00'],
-            sameAs: ['https://www.facebook.com/p/Royal-cut-100057832162337/'],
+// Each location is a separate object with its own @context (most compatible with validators)
+const BUSINESS = [
+    {
+        '@context': 'https://schema.org',
+        '@type': 'BarberShop',
+        name: 'Royal Cut South Ealing',
+        url: SITE_URL + '/',
+        image: SITE_URL + '/product-images/1.jpeg',
+        telephone: '+44 20 8567 7342',
+        priceRange: '£12-£27',
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: '134A South Ealing Road',
+            addressLocality: 'London',
+            postalCode: 'W5 4QJ',
+            addressCountry: 'GB',
         },
-        {
-            '@type': 'BarberShop',
-            name: 'Royal Cut The Vale',
-            url: SITE_URL + '/about',
-            image: SITE_URL + '/product-images/1.jpeg',
-            telephone: '+44 20 7041 9409',
-            priceRange: '£12-£27',
-            address: {
-                '@type': 'PostalAddress',
-                streetAddress: '11 The Vale',
-                addressLocality: 'London',
-                postalCode: 'W3 7SH',
-                addressCountry: 'GB',
-            },
-            openingHours: ['Mo-Sa 10:00-19:00', 'Su 10:00-18:00'],
-            sameAs: ['https://www.facebook.com/p/Royal-cut-100057832162337/'],
+        openingHours: ['Mo-Fr 09:00-19:00', 'Sa 09:00-18:00', 'Su 10:00-17:00'],
+        sameAs: ['https://www.facebook.com/p/Royal-cut-100057832162337/'],
+    },
+    {
+        '@context': 'https://schema.org',
+        '@type': 'BarberShop',
+        name: 'Royal Cut The Vale',
+        url: SITE_URL + '/about',
+        image: SITE_URL + '/product-images/1.jpeg',
+        telephone: '+44 20 7041 9409',
+        priceRange: '£12-£27',
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: '11 The Vale',
+            addressLocality: 'London',
+            postalCode: 'W3 7SH',
+            addressCountry: 'GB',
         },
-    ],
-};
+        openingHours: ['Mo-Sa 10:00-19:00', 'Su 10:00-18:00'],
+        sameAs: ['https://www.facebook.com/p/Royal-cut-100057832162337/'],
+    },
+];
 const STRUCTURED_DATA_PAGES = ['index.html', 'pages/about/about.html'];
 
 // Favicon for browser tabs and Google search results (square PNG, e.g. 192x192)
