@@ -380,15 +380,18 @@ body.page-home {
   text-decoration: none;
   background: linear-gradient(#c8a96a, #c8a96a) left bottom/0 2px no-repeat;
   transition: background-size 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
 }
-.visit__cta span {
+.visit__cta svg {
+  width: 0.8em;
+  height: 0.8em;
   color: #c8a96a;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .visit__cta:hover, .visit__cta:focus-visible {
   background-size: 100% 2px;
 }
-.visit__cta:hover span, .visit__cta:focus-visible span {
+.visit__cta:hover svg, .visit__cta:focus-visible svg {
   transform: translateX(0.15em);
 }
 

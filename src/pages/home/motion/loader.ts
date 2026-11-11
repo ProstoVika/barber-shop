@@ -14,7 +14,7 @@ const isFirstVisit = (): boolean => {
 };
 
 /**
- * Counter 000 → 100 with a thin gold line, then the screen slides up.
+ * Counter 000 to 100 with a thin gold line, then the screen slides up.
  * Short version on repeat visits. Resolves when the page starts to show.
  */
 export async function playLoader(): Promise<void> {

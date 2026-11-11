@@ -1,6 +1,6 @@
 @use '../../styles/variables' as *;
 
-// Home page — dark, editorial, grotesk type, thin lines, delicate gold.
+// Home page: dark, editorial, grotesk type, thin lines, delicate gold.
 // The static layout works on its own; `.has-motion` (set in <head>) adds the animated version.
 
 body.page-home {
@@ -445,7 +445,11 @@ body.page-home {
         background: linear-gradient($gold, $gold) left bottom / 0 2px no-repeat;
         transition: background-size 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
-        span {
+        align-items: center;
+
+        svg {
+            width: 0.8em;
+            height: 0.8em;
             color: $gold;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -454,7 +458,7 @@ body.page-home {
         &:focus-visible {
             background-size: 100% 2px;
 
-            span {
+            svg {
                 transform: translateX(0.15em);
             }
         }

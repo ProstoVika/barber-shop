@@ -18,7 +18,7 @@ const navLink = (item, current) => `
 const header = (page) => `
 <header class="site-header">
     <div class="site-header__inner">
-        <a class="site-header__logo" href="/" aria-label="Royal Cut – home">
+        <a class="site-header__logo" href="/" aria-label="Royal Cut home page">
             <img src="/product-images/6.png" alt="Royal Cut barbershop logo" width="734" height="156">
         </a>
 
@@ -41,7 +41,7 @@ const header = (page) => `
 const footer = () => `
 <footer class="site-footer">
     <div class="site-footer__grid">
-        <p class="site-footer__lead">Royal Cut — barbershop in South Ealing and The Vale, London.</p>
+        <p class="site-footer__lead">Royal Cut. Barbershop in South Ealing and The Vale, London.</p>
 
         <nav aria-label="Footer">
             <ul class="site-footer__list">${pages.map((item) => `
@@ -50,15 +50,25 @@ const footer = () => `
         </nav>
 
         <ul class="site-footer__list">
-            <li>South Ealing — <a href="tel:+442085677342">020 8567 7342</a></li>
-            <li>The Vale — <a href="tel:+442070419409">020 7041 9409</a></li>
-            <li><a href="${FACEBOOK_URL}" target="_blank" rel="noopener">Facebook ↗</a></li>
+            <li><span>South Ealing</span> <a href="tel:+442085677342">020 8567 7342</a></li>
+            <li><span>The Vale</span> <a href="tel:+442070419409">020 7041 9409</a></li>
+            <li>
+                <a class="site-footer__social" href="${FACEBOOK_URL}" target="_blank" rel="noopener" aria-label="Royal Cut on Facebook">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                        <path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/>
+                    </svg>
+                </a>
+            </li>
         </ul>
     </div>
 
     <div class="site-footer__bottom">
         <span>© ${new Date().getFullYear()} Royal Cut. All rights reserved.</span>
-        <a href="#">Back to top ↑</a>
+        <a class="site-footer__top" href="#">Back to top
+            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M8 14V2M3 7l5-5 5 5"/>
+            </svg>
+        </a>
     </div>
 </footer>`;
 

@@ -284,10 +284,39 @@ img {
         list-style: none;
         color: $muted;
 
+        li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
         a {
             color: $paper;
             white-space: nowrap;
         }
+    }
+
+    &__social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        margin-top: 8px;
+        border: 1px solid $line;
+        border-radius: 50%;
+        transition: border-color $transition, color $transition;
+
+        &:hover,
+        &:focus-visible {
+            border-color: $gold;
+        }
+    }
+
+    &__top {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
     }
 
     &__bottom {

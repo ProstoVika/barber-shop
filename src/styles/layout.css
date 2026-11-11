@@ -250,9 +250,33 @@ img {
   list-style: none;
   color: #808080;
 }
+.site-footer__list li {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 4px;
+}
 .site-footer__list a {
   color: #ececea;
   white-space: nowrap;
+}
+.site-footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-top: 8px;
+  border: 1px solid rgba(236, 236, 234, 0.18);
+  border-radius: 50%;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.site-footer__social:hover, .site-footer__social:focus-visible {
+  border-color: #c8a96a;
+}
+.site-footer__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 .site-footer__bottom {
   display: flex;
