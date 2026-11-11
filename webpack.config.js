@@ -30,7 +30,7 @@ const pages = [
 const BUSINESS = [
     {
         '@context': 'https://schema.org',
-        '@type': 'BarberShop',
+        '@type': 'HairSalon',
         name: 'Royal Cut South Ealing',
         url: SITE_URL + '/',
         image: SITE_URL + '/product-images/1.jpeg',
@@ -48,7 +48,7 @@ const BUSINESS = [
     },
     {
         '@context': 'https://schema.org',
-        '@type': 'BarberShop',
+        '@type': 'HairSalon',
         name: 'Royal Cut The Vale',
         url: SITE_URL + '/about',
         image: SITE_URL + '/product-images/1.jpeg',
