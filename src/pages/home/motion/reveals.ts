@@ -15,7 +15,7 @@ function revealBlocks(): void {
 
 /** Photos open like a curtain from the bottom; a row opens one after another. */
 function revealPhotos(): void {
-    const photos = gsap.utils.toArray<HTMLElement>('.portrait, .service__media');
+    const photos = gsap.utils.toArray<HTMLElement>('.portrait, .services__preview');
     gsap.set(photos, { clipPath: 'inset(100% 0% 0% 0%)' });
 
     ScrollTrigger.batch(photos, {
@@ -43,20 +43,8 @@ function lightUpStatement(): void {
     });
 }
 
-/** The small overlapping photo of each service drifts a little slower than the page. */
-function parallaxServices(): void {
-    gsap.utils.toArray<HTMLElement>('.service__small').forEach((img) =>
-        gsap.fromTo(img, { yPercent: 18 }, {
-            yPercent: -18,
-            ease: 'none',
-            scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: true },
-        }),
-    );
-}
-
 export function initReveals(): void {
     revealBlocks();
     revealPhotos();
     lightUpStatement();
-    parallaxServices();
 }

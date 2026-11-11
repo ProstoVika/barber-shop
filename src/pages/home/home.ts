@@ -1,6 +1,4 @@
 import '../../common/layout';
-import '@fontsource/inter-tight/latin-400.css';
-import '@fontsource/inter-tight/latin-500.css';
 import './home.scss';
 
 import { gsap } from 'gsap';
@@ -9,7 +7,7 @@ import { initSmoothScroll } from './motion/smooth-scroll';
 import { playLoader } from './motion/loader';
 import { prepareHero, revealHero, initHeroScroll } from './motion/hero';
 import { initReveals } from './motion/reveals';
-import { initServicesCounter } from './motion/services-counter';
+import { initServicesPreview } from './motion/services-preview';
 
 // `has-motion` is added in <head> unless the visitor turned animations off;
 // without it the page stays a static layout and none of this runs.
@@ -24,7 +22,7 @@ async function initMotion(): Promise<void> {
     prepareHero();
     initHeroScroll();
     initReveals();
-    initServicesCounter();
+    initServicesPreview();
 
     // Layout shifts once the web font is in, so measure again
     document.fonts?.ready.then(() => ScrollTrigger.refresh());

@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <!-- 03 Services: sticky counter on the left, cuts on the right -->
+    <!-- 03 Services: list of cuts, the photo on the left follows the hovered row -->
     <section class="services" aria-labelledby="services-title">
         <header class="section-head">
             <span>03</span>
@@ -87,44 +87,24 @@
             <a href="/services">All prices</a>
         </header>
         <div class="services__body">
-            <aside class="services__aside" aria-hidden="true">
-                <p class="services__count"><span class="services__current">01</span> / 05</p>
-            </aside>
-            <ol class="services__list">
-                <li class="service">
-                    <div class="service__head"><h3>Men’s cut</h3><span>£15</span></div>
-                    <div class="service__media">
-                        <img class="service__main" src="/product-images/home/cut-1.webp" width="750" height="1000" loading="lazy" alt="Barber finishing a men’s cut">
-                        <img class="service__small" src="/product-images/home/cut-2.webp" width="1000" height="1000" loading="lazy" alt="Finished short back and sides">
-                    </div>
+            <figure class="services__preview">
+                <img src="/product-images/home/cut-1.webp" width="750" height="1000" loading="lazy" alt="Barber finishing a men’s cut">
+            </figure>
+            <ol class="services__list" data-reveal>
+                <li class="service" data-image="/product-images/home/cut-1.webp" data-alt="Barber finishing a men’s cut">
+                    <a class="service__link" href="/services"><h3>Men’s cut</h3><span class="service__price">£15</span></a>
                 </li>
-                <li class="service">
-                    <div class="service__head"><h3>Skin fade</h3><span>£20</span></div>
-                    <div class="service__media">
-                        <img class="service__main" src="/product-images/home/fade-2.webp" width="750" height="1000" loading="lazy" alt="Clipper work on a skin fade">
-                        <img class="service__small" src="/product-images/home/fade-1.webp" width="900" height="900" loading="lazy" alt="Close-up of a skin fade">
-                    </div>
+                <li class="service" data-image="/product-images/home/fade-2.webp" data-alt="Clipper work on a skin fade">
+                    <a class="service__link" href="/services"><h3>Skin fade</h3><span class="service__price">£20</span></a>
                 </li>
-                <li class="service">
-                    <div class="service__head"><h3>Long hair</h3><span>£17</span></div>
-                    <div class="service__media">
-                        <img class="service__main" src="/product-images/home/long-2.webp" width="750" height="1000" loading="lazy" alt="Styling longer hair">
-                        <img class="service__small" src="/product-images/home/long-1.webp" width="1000" height="1000" loading="lazy" alt="Curly top with a taper">
-                    </div>
+                <li class="service" data-image="/product-images/home/long-2.webp" data-alt="Styling longer hair">
+                    <a class="service__link" href="/services"><h3>Long hair</h3><span class="service__price">£17</span></a>
                 </li>
-                <li class="service">
-                    <div class="service__head"><h3>Beard trim &amp; shape up</h3><span>£15</span></div>
-                    <div class="service__media">
-                        <img class="service__main" src="/product-images/home/beard-1.webp" width="750" height="1000" loading="lazy" alt="Beard shape up with a razor">
-                        <img class="service__small" src="/product-images/home/beard-2.webp" width="750" height="1000" loading="lazy" alt="Beard trim in progress">
-                    </div>
+                <li class="service" data-image="/product-images/home/beard-1.webp" data-alt="Beard shape up with a razor">
+                    <a class="service__link" href="/services"><h3>Beard trim &amp; shape up</h3><span class="service__price">£15</span></a>
                 </li>
-                <li class="service">
-                    <div class="service__head"><h3>Wet shave &amp; hot towel</h3><span>£12</span></div>
-                    <div class="service__media">
-                        <img class="service__main" src="/product-images/home/shave-1.webp" width="750" height="1000" loading="lazy" alt="Client relaxing during a wet shave">
-                        <img class="service__small" src="/product-images/home/shave-2.webp" width="750" height="1000" loading="lazy" alt="Barber at work">
-                    </div>
+                <li class="service" data-image="/product-images/home/shave-1.webp" data-alt="Client relaxing during a wet shave">
+                    <a class="service__link" href="/services"><h3>Wet shave &amp; hot towel</h3><span class="service__price">£12</span></a>
                 </li>
             </ol>
         </div>

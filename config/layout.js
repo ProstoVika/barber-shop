@@ -23,9 +23,11 @@ const header = (page) => `
         </a>
 
         <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">
-            <span class="menu-toggle__bar"></span>
-            <span class="menu-toggle__bar"></span>
-            <span class="menu-toggle__bar"></span>
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                <line class="menu-toggle__line" x1="3" y1="7" x2="21" y2="7"/>
+                <line class="menu-toggle__line" x1="3" y1="12" x2="21" y2="12"/>
+                <line class="menu-toggle__line" x1="3" y1="17" x2="21" y2="17"/>
+            </svg>
         </button>
 
         <nav class="site-nav" id="site-menu" aria-label="Main">
@@ -38,15 +40,26 @@ const header = (page) => `
 
 const footer = () => `
 <footer class="site-footer">
-    <div class="site-footer__row">
-        <h2 class="site-footer__title">Visit us</h2>
-        <a class="site-footer__social" href="${FACEBOOK_URL}" target="_blank" rel="noopener" aria-label="Royal Cut on Facebook">
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor">
-                <path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/>
-            </svg>
-        </a>
+    <div class="site-footer__grid">
+        <p class="site-footer__lead">Royal Cut — barbershop in South Ealing and The Vale, London.</p>
+
+        <nav aria-label="Footer">
+            <ul class="site-footer__list">${pages.map((item) => `
+                <li><a href="${item.url}">${item.menu}</a></li>`).join('')}
+            </ul>
+        </nav>
+
+        <ul class="site-footer__list">
+            <li>South Ealing — <a href="tel:+442085677342">020 8567 7342</a></li>
+            <li>The Vale — <a href="tel:+442070419409">020 7041 9409</a></li>
+            <li><a href="${FACEBOOK_URL}" target="_blank" rel="noopener">Facebook ↗</a></li>
+        </ul>
     </div>
-    <p class="site-footer__copyright">© ${new Date().getFullYear()} Royal Cut. All rights reserved.</p>
+
+    <div class="site-footer__bottom">
+        <span>© ${new Date().getFullYear()} Royal Cut. All rights reserved.</span>
+        <a href="#">Back to top ↑</a>
+    </div>
 </footer>`;
 
 module.exports = { head, header, footer };

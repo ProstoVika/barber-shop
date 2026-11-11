@@ -1,0 +1,45 @@
+.price-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+.price-list h1,
+.price-list h2 {
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+.price-list__separator {
+  height: 2px;
+  margin: 30px 0;
+  border: 0;
+  background: #ffd700;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.price-table th,
+.price-table td {
+  padding: 10px;
+  text-align: center;
+}
+.price-table th {
+  background: #f2f2f2;
+  font-weight: normal;
+}
+.price-table td {
+  font-size: 1rem;
+  border-top: 1px solid #ddd;
+}
+.price-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.price-table tbody tr:hover {
+  background: #f1f1f1;
+}
+
+/*# sourceMappingURL=services.css.map */

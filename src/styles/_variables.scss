@@ -22,3 +22,12 @@ $bp-menu: 1024px;  // below this the menu collapses into the burger
 @mixin above($bp) {
     @media (min-width: $bp + 1) { @content; }
 }
+
+// Editorial palette (header, footer, home)
+$ink: #141414;
+$paper: #ececea;
+$muted: #808080;
+$line: rgb(236 236 234 / 18%);
+$gold: #c8a96a;
+$grotesk: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+$gutter: clamp(16px, 2.2vw, 32px);

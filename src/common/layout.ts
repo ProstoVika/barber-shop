@@ -1,3 +1,5 @@
+import '@fontsource/inter-tight/latin-400.css';
+import '@fontsource/inter-tight/latin-500.css';
 import '../styles/layout.scss';
 
 /** Burger menu for small screens: open/close, close on link click, Esc or resize. */
