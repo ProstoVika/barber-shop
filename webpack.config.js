@@ -13,7 +13,7 @@ const seo = (title, description, pagePath) => ({
         'og:description': { property: 'og:description', content: description },
         'og:url': { property: 'og:url', content: SITE_URL + pagePath },
         'og:type': { property: 'og:type', content: 'website' },
-        // 'og:image': { property: 'og:image', content: SITE_URL + '/product-images/YOUR-PHOTO.jpg' },
+        'og:image': { property: 'og:image', content: SITE_URL + '/product-images/1.jpeg' },
     },
 });
 
