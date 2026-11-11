@@ -4,66 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <%= htmlWebpackPlugin.options.layout.head %>
 </head>
-
 <body>
-<header class="header">
-    <nav class="navbar">
-        <!-- NAVIGATION -->
-        <div class="header-icon">
-            <a href="../../index.html">WHO WE ARE</a>
-            <a href="../../pages/team/team.html">GALLERY</a>
-            <a href="../../pages/services/services.html">SERVICES & PRICES</a>
-            <a href="../../pages/products/products.html">PRODUCTS</a>
-            <div class="header-contact">
-                <a href="../../pages/about/about.html">CONTACT</a>
-            </div>
+<%= htmlWebpackPlugin.options.layout.header %>
+
+<main>
+    <h1 class="visually-hidden">Royal Cut gallery</h1>
+
+    <!-- Photos are added from team.ts -->
+    <section class="rc-gallery" tabindex="0" aria-roledescription="carousel" aria-label="Royal Cut gallery">
+        <div class="rc-gallery__viewport">
+            <div class="rc-gallery__track"></div>
+            <div class="rc-gallery__frame" aria-hidden="true"></div>
         </div>
-
-        <!-- LOGO -->
-        <div class="btn-header-logo">
-            <div class="btn-logo">
-                <span class="logo"></span>
-                <div class="logotype"><img src="../../product-images/6.png" alt="Royal Cut barbershop logo"/></div>
-            </div>
+        <div class="rc-gallery__bar">
+            <span class="rc-gallery__count" aria-live="polite"></span>
+            <nav class="rc-gallery__pager" aria-label="Gallery navigation"></nav>
+            <span class="rc-gallery__hint">Swipe or drag to explore</span>
         </div>
+        <div class="rc-gallery__progress"><span class="rc-gallery__progress-fill"></span></div>
+    </section>
+</main>
 
-        <div id="line"></div>
-    </nav>
-</header>
-
-<!-- GALLERY: photos are added from team.ts -->
-<section class="rc-gallery" id="gallery" tabindex="0"
-         aria-roledescription="carousel" aria-label="Royal Cut gallery">
-    <div class="rc-gallery__viewport">
-        <div class="rc-gallery__track"></div>
-        <div class="rc-gallery__frame" aria-hidden="true"></div>
-    </div>
-    <div class="rc-gallery__bar">
-        <span class="rc-gallery__count" aria-live="polite"></span>
-        <nav class="rc-gallery__pager" aria-label="Gallery navigation"></nav>
-        <span class="rc-gallery__hint">Swipe or drag to explore</span>
-    </div>
-    <div class="rc-gallery__progress"><span class="rc-gallery__progress-fill"></span></div>
-</section>
-
-<footer>
-    <div class="box">
-        <h3 class="meet">MEET?</h3>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/p/Royal-cut-100057832162337/" aria-label="Royal Cut on Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-
-        </div>
-    </div>
-    <span class="copyright"> ©Copyright 2026 Royal Cut. All rights reserved </span>
-</footer>
-
+<%= htmlWebpackPlugin.options.layout.footer %>
 </body>
 </html>

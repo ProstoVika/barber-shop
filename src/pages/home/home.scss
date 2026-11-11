@@ -1,0 +1,205 @@
+@use '../../styles/variables' as *;
+
+// The hero video sits behind the transparent header, so no top padding here
+body.page-home {
+    padding-top: 0;
+}
+
+.section-title {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    font-weight: 300;
+    color: $color-dark;
+}
+
+// ---------- Hero (video stays fixed, the sections below scroll over it) ----------
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    height: 100svh;
+    padding: var(--header-h) 20px 0;
+    overflow: hidden;
+
+    &__video {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__content {
+        color: $color-gold;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 300;
+        line-height: 1.4;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+
+        h1 {
+            margin: 0 0 0.5em;
+        }
+
+        &.is-hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+    }
+}
+
+// ---------- Our story ----------
+
+.story {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+
+    &__image {
+        flex: 1;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__text {
+        flex: 1;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px;
+
+        h2 {
+            margin: 0 0 20px;
+            font-size: 1.7rem;
+            font-weight: 300;
+            text-align: right;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    }
+
+    .highlight {
+        color: #dbba34;
+    }
+
+    @include below($bp-mobile) {
+        min-height: 0;
+
+        &__image {
+            display: none;
+        }
+
+        &__text {
+            padding: 40px 20px;
+
+            h2 {
+                text-align: center;
+            }
+        }
+    }
+}
+
+// ---------- Team ----------
+
+.team {
+    padding: 40px 20px;
+    background: $color-light-bg;
+    text-align: center;
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    &__members {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+
+        img {
+            width: 300px;
+            height: 420px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+            transition: transform $transition;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    @include below($bp-mobile) {
+        &__members {
+            gap: 20px;
+
+            img {
+                width: 80%;
+                height: auto;
+                max-height: 380px;
+            }
+        }
+    }
+}
+
+// ---------- Call to action ----------
+
+.cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 331px;
+    padding: 50px 20px;
+    background: #f1f1f1;
+    color: $color-dark;
+    text-align: center;
+
+    // thin lines above and below, like before
+    &::before,
+    &::after {
+        content: '';
+        width: 80%;
+        height: 1px;
+        background: $color-text;
+    }
+
+    &::before { margin-bottom: 30px; }
+    &::after { margin-top: 30px; }
+
+    p {
+        margin: 0 0 20px;
+        font-size: 1rem;
+    }
+
+    &__button {
+        padding: 10px 20px;
+        border: 1px solid $color-text;
+        color: $color-text;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background-color $transition, color $transition;
+
+        &:hover,
+        &:focus-visible {
+            background: #2f2927;
+            color: #fff;
+        }
+    }
+}

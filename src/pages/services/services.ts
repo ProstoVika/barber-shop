@@ -1,1 +1,2 @@
-import './services.css'
+import '../../common/layout';
+import './services.scss';

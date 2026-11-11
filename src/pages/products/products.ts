@@ -1,37 +1,42 @@
-import './products.css'
-import {Filter} from "../../lego/filter";
-import {productDOM, ProductList} from "../../lego/product";
+import '../../common/layout';
+import './products.scss';
+import { fetchProducts, renderProducts } from '../../components/product-list';
+import { filterProducts, FilterState } from '../../components/product-filter';
+import { Product } from '../../types/product';
 
+const container = document.querySelector('.products');
+const searchForm = document.querySelector<HTMLFormElement>('.search');
+const searchInput = document.querySelector<HTMLInputElement>('.search__input');
+const categoryButtons = document.querySelectorAll<HTMLButtonElement>('.category-btn');
 
-export class MainController {
-    private readonly productList: ProductList;
-    private filter: Filter;
-    private readonly productDOM: Element;
-    private readonly line: HTMLElement;
+const state: FilterState = { search: '', category: '' };
+let products: Product[] = [];
 
-    constructor(productDOM: Element) {
-        this.productDOM = document.querySelector(".products-container")!;
-        this.productList = new ProductList(this.productDOM);
-        this.filter = new Filter(this.productList);
-        this.line = document.getElementById('line')!;
-
-        this.updateView();
-        window.addEventListener('scroll', this.progressBar);
-    }
-    private progressBar() {
-        let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let width_progress_line = (windowScroll / windowHeight) * 100;
-        this.line.style.width = width_progress_line + '%';
-    }
-
-    private updateView = async (): Promise<void> => {
-        await this.productList.fetchProducts();
-        const filteredProducts = this.filter.getFilteredProducts();
-        this.filter.filterRenderProducts(filteredProducts);
-        this.progressBar();
-    }
+function update(): void {
+    if (container) renderProducts(container, filterProducts(products, state));
 }
 
-export const mainController = new MainController(productDOM);
+searchInput?.addEventListener('input', () => {
+    state.search = searchInput.value;
+    update();
+});
 
+searchForm?.addEventListener('submit', (e) => e.preventDefault());
+
+categoryButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        state.category = button.dataset.category ?? '';
+        categoryButtons.forEach((b) => b.classList.toggle('is-active', b === button));
+        update();
+    });
+});
+
+fetchProducts()
+    .then((data) => {
+        products = data;
+        update();
+    })
+    .catch((error) => {
+        console.error(error);
+        if (container) container.innerHTML = '<p class="products__empty">Products are not available right now.</p>';
+    });

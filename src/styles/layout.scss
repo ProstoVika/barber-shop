@@ -1,0 +1,298 @@
+// Base styles + header/menu + footer, shared by every page.
+@use 'variables' as *;
+
+:root {
+    --header-h: 100px;
+
+    @include below($bp-menu) {
+        --header-h: 64px;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: var(--header-h);
+}
+
+body {
+    margin: 0;
+    padding-top: var(--header-h); // room for the fixed header
+    font-family: $font-family;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: $color-text;
+}
+
+body.menu-open {
+    overflow: hidden; // no page scroll behind the open mobile menu
+}
+
+img {
+    max-width: 100%;
+}
+
+// ---------- Header ----------
+
+.site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    background: rgb(19 17 17 / 85%);
+    backdrop-filter: blur(6px);
+
+    &__inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: var(--header-h);
+        padding: 0 60px;
+    }
+
+    &__logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        transition: transform $transition;
+
+        img {
+            display: block;
+            width: 140px;
+            height: auto;
+        }
+
+        &:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+    }
+}
+
+// ---------- Menu ----------
+
+.site-nav {
+    width: 100%;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        // "Contact" sits on the right, like before
+        li:last-child {
+            margin-left: auto;
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 4px;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color $transition;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: $color-accent;
+            transition: width $transition;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &[aria-current='page'] {
+            color: $color-accent;
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Burger button: hidden on desktop
+.menu-toggle {
+    display: none;
+}
+
+@include below($bp-menu) {
+    .site-header {
+        &__inner {
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        &__logo {
+            position: static;
+            transform: none;
+
+            img {
+                width: 110px;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .menu-toggle {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+
+        &__bar {
+            display: block;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: transform $transition, opacity $transition;
+        }
+
+        // Burger -> cross
+        &[aria-expanded='true'] {
+            .menu-toggle__bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle__bar:nth-child(2) { opacity: 0; }
+            .menu-toggle__bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+    }
+
+    // Dropdown panel under the header
+    .site-nav {
+        // absolute, not fixed: the header's backdrop-filter would trap a fixed child
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: calc(100dvh - var(--header-h));
+        overflow-y: auto;
+        background: rgb(19 17 17 / 97%);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-12px);
+        transition: opacity $transition, transform $transition, visibility 0s 0.3s;
+
+        &.is-open {
+            visibility: visible;
+            opacity: 1;
+            transform: none;
+            transition: opacity $transition, transform $transition;
+        }
+
+        &__list {
+            flex-direction: column;
+            gap: 0;
+            padding: 24px 0;
+
+            li,
+            li:last-child {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        &__link {
+            padding: 14px 0;
+            font-size: 18px;
+
+            &::after {
+                bottom: 8px;
+            }
+        }
+    }
+}
+
+// Thin bar at the bottom of the header that fills while scrolling
+.scroll-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: $color-accent;
+    transform: scaleX(var(--progress, 0));
+    transform-origin: left;
+}
+
+// ---------- Footer ----------
+
+.site-footer {
+    padding: 33px 20px;
+    background: rgb(0 0 0 / 90%);
+    color: #fff;
+    text-align: center;
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 2rem 0;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: gray;
+        transition: color $transition;
+
+        &:hover,
+        &:focus-visible {
+            color: #fff;
+        }
+    }
+
+    &__copyright {
+        margin: 0;
+        font-size: 15px;
+    }
+}
+
+// Hidden on screen, still read by screen readers and search engines
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}

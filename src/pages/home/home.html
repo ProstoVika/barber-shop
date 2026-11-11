@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <%= htmlWebpackPlugin.options.layout.head %>
+</head>
+<body class="page-home">
+<%= htmlWebpackPlugin.options.layout.header %>
+
+<main>
+    <section class="hero">
+        <video class="hero__video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="/product-images/888.mp4" type="video/mp4">
+        </video>
+        <div class="hero__content">
+            <h1>Barbershop in South Ealing</h1>
+            <p>Experience the finest barber services in town</p>
+        </div>
+    </section>
+
+    <section class="story">
+        <div class="story__image">
+            <img src="/product-images/1.jpeg" loading="lazy" alt="Inside Royal Cut barbershop, South Ealing">
+        </div>
+        <div class="story__text">
+            <h2>Our Story</h2>
+            <p>
+                A barbershop like <span class="highlight">Royal Cut</span> has always been more than just a place for
+                grooming, it’s a gathering spot, a place where bonds are formed, stories are shared, and the community
+                connects. From the first cut to the last shave, we create an experience that goes beyond just a trim.
+                It’s about style, tradition, and the relationships that make us who we are.
+            </p>
+        </div>
+    </section>
+
+    <section class="team">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team__members">
+            <img src="/product-images/team1.PNG" loading="lazy" alt="Barber at Royal Cut">
+            <img src="/product-images/12.jpeg" loading="lazy" alt="Barber at Royal Cut">
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2 class="section-title">Contact us</h2>
+        <p>For bookings and queries, contact us</p>
+        <a href="/about" class="cta__button">Contact us</a>
+    </section>
+</main>
+
+<%= htmlWebpackPlugin.options.layout.footer %>
+</body>
+</html>

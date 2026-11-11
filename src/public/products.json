@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "NEWHAIR | GLUE HAIR POMADE",
+    "category": "hair styling",
+    "price": 7.99,
+    "image": "/product-images/product-16.jpg"
+  },
+  {
+    "id": 2,
+    "title": "MORFOSE | MEGA AQUA HAIR GEL WAX 150ml",
+    "category": "hair styling",
+    "price": 6.99,
+    "image": "/product-images/product-12.jpg"
+  },
+  {
+    "id": 3,
+    "title": "TOTEX | POWDER WAX MATTIFICATING HAIR WAX 20g",
+    "category": "hair styling",
+    "price": 7.99,
+    "image": "/product-images/product-14.jpg"
+  },
+  {
+    "id": 4,
+    "title": "NEWHAIR | GLUE HAIR POMADE",
+    "category": "hair styling",
+    "price": 7.99,
+    "image": "/product-images/product-13.jpg"
+  },
+  {
+    "id": 5,
+    "title": "NEWHAIR | GLUE HAIR POMADE",
+    "category": "beard",
+    "price": 7.99,
+    "image": "/product-images/product-15.jpg"
+  },
+  {
+    "id": 6,
+    "title": "RED ONE | Hair Styling Aqua Wax Orange 3x 150ml | Edge Control | Ultra Hold | Gel Wax | Maximum Control",
+    "category": "hair care",
+    "price": 7.99,
+    "image": "/product-images/product-11.jpg"
+  }
+]
