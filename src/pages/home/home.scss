@@ -136,18 +136,58 @@ body.page-home {
         height: auto;
     }
 
-    text {
-        fill: $paper;
-        font-family: $grotesk;
-        font-size: 200px;
-        font-weight: 500;
+    // Small line-drawn crown next to the word, like the mark in the logo
+    .crown {
+        fill: none;
+        stroke: $gold;
+        stroke-width: 1.4;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        vector-effect: non-scaling-stroke;
+
+        path {
+            vector-effect: non-scaling-stroke;
+        }
+
+        circle {
+            fill: $gold;
+            stroke: none;
+        }
+    }
+
+    // Scissors and the cut line only exist in the animated version
+    &__cut,
+    .scissors {
+        display: none;
+    }
+}
+
+.has-motion .wordmark {
+    &__cut {
+        display: block;
+        stroke: $gold;
+        stroke-width: 1;
+        vector-effect: non-scaling-stroke; // stays a 1px hairline at any width
+    }
+
+    .scissors {
+        display: block;
+        fill: none;
+        stroke: $gold;
+        stroke-width: 2;
+        stroke-linecap: round;
+
+        circle {
+            fill: $gold;
+            stroke: none;
+        }
     }
 }
 
 // Animated hero: the stage is pinned, the video shrinks into a frame
 // and the wordmark rises into the space below it.
 .has-motion .hero {
-    height: 230vh;
+    height: 320vh; // scroll distance for: frame, wordmark, cut
 
     &__stage {
         position: sticky;

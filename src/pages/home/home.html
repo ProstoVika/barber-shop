@@ -37,8 +37,37 @@
 
             <h1 class="wordmark">
                 <span class="visually-hidden">Royal Cut, barbershop in South Ealing, London</span>
+
                 <svg viewBox="0 0 1000 150" aria-hidden="true">
-                    <text x="0" y="161" textLength="1000" lengthAdjust="spacingAndGlyphs">ROYAL CUT</text>
+                    <defs>
+                        <text id="wordmark-text" x="0" y="161" textLength="915" lengthAdjust="spacingAndGlyphs"
+                              fill="#ececea" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="200" font-weight="500">ROYAL CUT</text>
+                        <clipPath id="wordmark-top"><rect x="-100" y="-100" width="1200" height="184"/></clipPath>
+                        <clipPath id="wordmark-bottom"><rect x="-100" y="84" width="1200" height="200"/></clipPath>
+                    </defs>
+                    <g class="wordmark__half wordmark__half--top" clip-path="url(#wordmark-top)"><use href="#wordmark-text"/></g>
+                    <g class="wordmark__half wordmark__half--bottom" clip-path="url(#wordmark-bottom)"><use href="#wordmark-text"/></g>
+
+                    <g class="crown" transform="translate(934 14)">
+                        <path d="M9 33 L3 13 L12 23 L17 8 L24 20 L31 3 L38 20 L45 8 L50 23 L59 13 L53 33 Z"/>
+                        <path d="M10 39 L52 39"/>
+                        <circle cx="3" cy="10" r="2"/><circle cx="17" cy="5" r="2"/><circle cx="31" cy="0" r="2"/><circle cx="45" cy="5" r="2"/><circle cx="59" cy="10" r="2"/>
+                    </g>
+
+                    <line class="wordmark__cut" x1="0" y1="84" x2="0" y2="84"/>
+                    <g class="scissors" transform="translate(-80 84)">
+                        <g class="scissors__blade" transform="rotate(0)">
+                            <path d="M0 0 L40 -2.5"/>
+                            <path d="M0 0 L-12 5"/>
+                            <ellipse cx="-19" cy="8" rx="7.5" ry="5.5"/>
+                        </g>
+                        <g class="scissors__blade" transform="rotate(0)">
+                            <path d="M0 0 L40 2.5"/>
+                            <path d="M0 0 L-12 -5"/>
+                            <ellipse cx="-19" cy="-8" rx="7.5" ry="5.5"/>
+                        </g>
+                        <circle r="1.8"/>
+                    </g>
                 </svg>
             </h1>
         </div>
