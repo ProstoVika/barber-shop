@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <%= htmlWebpackPlugin.options.layout.head %>
-    <!-- Animated version is switched on before the first paint, unless animations are off in the OS -->
+
     <script>
         if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('has-motion');
     </script>
@@ -21,7 +21,7 @@
 <%= htmlWebpackPlugin.options.layout.header %>
 
 <main>
-    <!-- Hero: full video shrinks into a frame, the wordmark rises from below -->
+
     <section class="hero">
         <div class="hero__stage">
             <div class="hero__media">
@@ -44,7 +44,7 @@
         </div>
     </section>
 
-    <!-- 01 Work: black & white portraits -->
+
     <section class="portraits" aria-labelledby="work-title">
         <header class="section-head">
             <span>01</span>
@@ -59,7 +59,7 @@
         </div>
     </section>
 
-    <!-- 02 Story: words light up while scrolling -->
+
     <section class="statement" aria-labelledby="story-title">
         <header class="section-head">
             <span>02</span>
@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <!-- 03 Services: list of cuts, the photo on the left follows the hovered row -->
+
     <section class="services" aria-labelledby="services-title">
         <header class="section-head">
             <span>03</span>
@@ -110,7 +110,7 @@
         </div>
     </section>
 
-    <!-- 04 Team -->
+
     <section class="team" aria-labelledby="team-title">
         <header class="section-head">
             <span>04</span>
@@ -124,7 +124,7 @@
         </div>
     </section>
 
-    <!-- 05 Visit -->
+
     <section class="visit" aria-labelledby="visit-title">
         <header class="section-head">
             <span>05</span>
